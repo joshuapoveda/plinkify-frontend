@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import PlinkCard from "../components/PlinkCard";
+import CreatePlinkForm from "../components/CreatePlinkForm";
 
 const Home = () => {
   const [plinks, setPlinks] = useState(null);
@@ -20,11 +21,10 @@ const Home = () => {
 
   return (
     <div>
+      <CreatePlinkForm />
       <div>
         {plinks &&
-          plinks.map((plink) => (
-            <PlinkCard key={plink._id} plink={plink}/>
-          ))}
+          plinks.map((plink) => <PlinkCard key={plink._id} plink={plink} />)}
       </div>
     </div>
   );

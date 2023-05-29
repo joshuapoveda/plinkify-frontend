@@ -6,7 +6,7 @@ export default defineConfig({
   plugins: [react()],
   server: {
     proxy:{
-      '/api/plinks': 'http://localhost:3000'
+      '/api/plinks': 'http://localhost:3000', 
     }
   }
 })
