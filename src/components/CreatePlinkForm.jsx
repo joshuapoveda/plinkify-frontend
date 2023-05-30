@@ -8,6 +8,7 @@ const CreatePlinkForm = () => {
   const [description, setDescription] = useState("");
   const [url1, setUrl1] = useState("");
   const [error, setError] = useState(null);
+  const [emptyFields, setEmptyFields] = useState([])
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -25,12 +26,14 @@ const CreatePlinkForm = () => {
 
     if (!response.ok) {
       setError(json.error);
+      setEmptyFields(json.emptyFields)
     }
     if (response.ok) {
       setTitle("");
       setDescription("");
       setUrl1("");
       setError(null);
+      setEmptyFields([])
       console.log("New plink created", json);
       dispatch({type: 'CREATE_PLINK', payload: json})
     }

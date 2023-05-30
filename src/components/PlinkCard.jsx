@@ -1,4 +1,6 @@
 import { usePlinksContext } from "../hooks/usePlinksContext";
+import formatDistancetToNow from 'date-fns/formatDistanceToNow'
+import EditPlinkForm from "./EditPlinkForm";
 
 const PlinkCard = ({ plink }) => {
   const { dispatch } = usePlinksContext();
@@ -24,8 +26,9 @@ const PlinkCard = ({ plink }) => {
         <li>{plink.url1}</li>
         <li>{plink.url2}</li>
       </ul>
-      <p>{plink.createdAt}</p>
+      <p>{formatDistancetToNow(new Date(plink.createdAt), {addSuffix: true})}</p>
       <div><button onClick={handleClick}>DELETE</button></div>
+      <EditPlinkForm plink={plink}></EditPlinkForm>
     </div>
   );
 };
