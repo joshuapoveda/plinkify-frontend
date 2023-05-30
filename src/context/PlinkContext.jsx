@@ -13,10 +13,14 @@ export const plinksReducer = (state, action) => {
     case "CREATE_PLINK":
       return {
         //adds a new object while adding on old ones from original state
-        plinks: [action.payload, ...state.plinks]
+        plinks: [action.payload, ...state.plinks],
       };
-      default:
-        return state
+    case "DELETE_PLINK":
+      return {
+        plinks: state.plinks.filter((p) => p._id !== action.payload._id),
+      };
+    default:
+      return state;
   }
 };
 
@@ -34,8 +38,8 @@ export const PlinksContextProvider = ({ children }) => {
 
   return (
     //value will be available to all components within root App component
-    <PlinksContext.Provider value={{...state, dispatch}}>
+    <PlinksContext.Provider value={{ ...state, dispatch }}>
       {children}
-      </PlinksContext.Provider>
+    </PlinksContext.Provider>
   );
 };
