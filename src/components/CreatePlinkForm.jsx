@@ -1,6 +1,9 @@
 import { useState } from "react";
+import { usePlinksContext } from "../hooks/usePlinksContext"
 
 const CreatePlinkForm = () => {
+  //const dispatch = usePlinksContext().dispatch
+  const {dispatch} = usePlinksContext()
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
   const [url1, setUrl1] = useState("");
@@ -29,6 +32,7 @@ const CreatePlinkForm = () => {
       setUrl1("");
       setError(null);
       console.log("New plink created", json);
+      dispatch({type: 'CREATE_PLINK', payload: json})
     }
   };
 

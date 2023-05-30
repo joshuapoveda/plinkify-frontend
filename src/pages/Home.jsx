@@ -1,9 +1,11 @@
-import { useEffect, useState } from "react";
+import { useEffect} from "react";
+import { usePlinksContext } from "../hooks/usePlinksContext";
+//components
 import PlinkCard from "../components/PlinkCard";
 import CreatePlinkForm from "../components/CreatePlinkForm";
 
 const Home = () => {
-  const [plinks, setPlinks] = useState(null);
+  const {plinks, dispatch} = usePlinksContext()
 
   useEffect(() => {
     const getPlinks = async () => {
@@ -12,7 +14,7 @@ const Home = () => {
       const json = await response.json();
 
       if (response.ok) {
-        setPlinks(json);
+        dispatch({type: 'SET_PLINKS', payload: json})
       }
     };
 
