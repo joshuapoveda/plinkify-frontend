@@ -1,16 +1,25 @@
 import { usePlinksContext } from "../hooks/usePlinksContext";
-import formatDistancetToNow from 'date-fns/formatDistanceToNow'
+import formatDistancetToNow from "date-fns/formatDistanceToNow";
+import { useAuthContext } from "../hooks/useAuthContext";
 
 const PlinkCard = ({ plink }) => {
   const { dispatch } = usePlinksContext();
+  const { user } = useAuthContext();
+
   const handleClick = async () => {
+    if (!user) {
+      return;
+    }
     const response = await fetch("/api/plinks/" + plink._id, {
       method: "DELETE",
+      headers: {
+        Authorization: `Bearer ${user.token}`,
+      },
     });
     const json = await response.json();
 
     if (response.ok) {
-      dispatch({type: 'DELETE_PLINK', payload: json})
+      dispatch({ type: "DELETE_PLINK", payload: json });
     }
   };
 
@@ -25,9 +34,12 @@ const PlinkCard = ({ plink }) => {
         <li>{plink.url1}</li>
         <li>{plink.url2}</li>
       </ul>
-      <p>{formatDistancetToNow(new Date(plink.createdAt), {addSuffix: true})}</p>
-      <div><button onClick={handleClick}>DELETE</button></div>
-      
+      <p>
+        {formatDistancetToNow(new Date(plink.createdAt), { addSuffix: true })}
+      </p>
+      <div>
+        <button onClick={handleClick}>DELETE</button>
+      </div>
     </div>
   );
 };

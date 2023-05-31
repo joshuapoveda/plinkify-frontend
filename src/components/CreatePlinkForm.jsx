@@ -1,17 +1,24 @@
 import { useState } from "react";
-import { usePlinksContext } from "../hooks/usePlinksContext"
+import { usePlinksContext } from "../hooks/usePlinksContext";
+import { useAuthContext } from "../hooks/useAuthContext";
 
 const CreatePlinkForm = () => {
-  //const dispatch = usePlinksContext().dispatch
-  const {dispatch} = usePlinksContext()
+  const { dispatch } = usePlinksContext();
+  const { user } = useAuthContext();
+
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
   const [url1, setUrl1] = useState("");
   const [error, setError] = useState(null);
-  const [emptyFields, setEmptyFields] = useState([])
+  const [emptyFields, setEmptyFields] = useState([]);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+
+    if (!user) {
+      setError("You need to login");
+      return;
+    }
 
     const plink = { title, description, url1 };
 
@@ -20,22 +27,23 @@ const CreatePlinkForm = () => {
       body: JSON.stringify(plink),
       headers: {
         "Content-Type": "application/json",
+        Authorization: `Bearer ${user.token}`,
       },
     });
     const json = await response.json();
 
     if (!response.ok) {
       setError(json.error);
-      setEmptyFields(json.emptyFields)
+      setEmptyFields(json.emptyFields);
     }
     if (response.ok) {
       setTitle("");
       setDescription("");
       setUrl1("");
       setError(null);
-      setEmptyFields([])
+      setEmptyFields([]);
       console.log("New plink created", json);
-      dispatch({type: 'CREATE_PLINK', payload: json})
+      dispatch({ type: "CREATE_PLINK", payload: json });
     }
   };
 
