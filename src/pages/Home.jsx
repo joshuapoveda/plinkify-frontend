@@ -7,16 +7,18 @@ import CreatePlinkForm from "../components/CreatePlinkForm";
 
 const Home = () => {
   const { plinks, dispatch } = usePlinksContext();
-  const {user} = useAuthContext()
+  const { user } = useAuthContext();
 
   useEffect(() => {
     const getPlinks = async () => {
-      //before launch, fetch should point to direct endpoint (may need cors package)
-      const response = await fetch("https://plinkify-backend.onrender.com/api/plinks" ,{
-        headers: {
-          'Authorization': `Bearer ${user.token}`
+      const response = await fetch(
+        "https://plinkify-backend.onrender.com/api/plinks",
+        {
+          headers: {
+            Authorization: `Bearer ${user.token}`,
+          },
         }
-      });
+      );
       const json = await response.json();
 
       if (response.ok) {
@@ -24,10 +26,9 @@ const Home = () => {
       }
     };
 
-    if(user){
-      getPlinks()
+    if (user) {
+      getPlinks();
     }
-
   }, [dispatch, user]);
 
   return (
