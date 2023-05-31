@@ -6,7 +6,6 @@ import Login from "./pages/Login"
 import Signup from "./pages/Signup";
 import Navbar from "./components/Navbar";
 import "./App.css";
-import Landing from "./pages/Landing";
 
 function App() {
   const { user } = useAuthContext();
@@ -18,23 +17,21 @@ function App() {
           <Routes>
             <Route
               path="/"
-              element={user ? <Home /> : <Navigate to="https://plinkify-backend.onrender.com/api/user/login" />}
+              element={user ? <Home /> : <Navigate to="/login" />}
             />
 
             <Route
               path="/login"
-              element={!user ? <Login /> : <Navigate to="https://plinkify-backend.onrender.com/api/plinks" />}
+              element={!user ? <Login /> : <Navigate to="/" />}
             />
 
             <Route
               path="/signup"
-              element={!user ? <Signup /> : <Navigate to="https://plinkify-backend.onrender.com/api/plinks" />}
+              element={!user ? <Signup /> : <Navigate to="/" />}
             />
           </Routes>
         </div>
       </BrowserRouter>
-
-      <Landing></Landing>
     </div>
   );
 }
