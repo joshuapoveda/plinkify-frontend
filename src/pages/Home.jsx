@@ -1,6 +1,7 @@
 import { useEffect } from "react";
 import { usePlinksContext } from "../hooks/usePlinksContext";
 import { useAuthContext } from "../hooks/useAuthContext";
+
 //components
 import PlinkCard from "../components/PlinkCard";
 import CreatePlinkForm from "../components/CreatePlinkForm";
@@ -15,7 +16,7 @@ const Home = () => {
         "https://plinkify-backend.onrender.com/api/plinks",
         {
           headers: {
-            Authorization: `Bearer ${user.token}`,
+            'Authorization': `Bearer ${user.token}`,
           },
         }
       );
