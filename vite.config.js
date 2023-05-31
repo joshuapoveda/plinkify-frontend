@@ -7,6 +7,7 @@ export default defineConfig({
   server: {
     proxy:{
       '/api/plinks': 'http://localhost:3000', 
+      '/api/user': 'http://localhost:3000'
     }
   }
 })
