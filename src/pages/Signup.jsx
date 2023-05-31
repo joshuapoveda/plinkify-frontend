@@ -6,8 +6,11 @@ const Signup = () => {
   const [password, setPassword] = useState("");
   const { signup, error, isLoading } = useSignup();
 
+  console.log(error)
+
   const handleSubmit = async (e) => {
     e.preventDefault();
+
     await signup(email, password);
   };
 
