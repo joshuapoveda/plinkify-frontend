@@ -12,7 +12,7 @@ const Home = () => {
   useEffect(() => {
     const getPlinks = async () => {
       //before launch, fetch should point to direct endpoint (may need cors package)
-      const response = await fetch("/api/plinks" ,{
+      const response = await fetch("https://plinkify-backend.onrender.com/api/plinks" ,{
         headers: {
           'Authorization': `Bearer ${user.token}`
         }
