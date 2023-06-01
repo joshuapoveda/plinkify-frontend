@@ -42,6 +42,8 @@ const CreatePlinkForm = () => {
       setTitle("");
       setDescription("");
       setUrl1("");
+      setUrl2("");
+      setUrl3("");
       setError(null);
       setEmptyFields([]);
       console.log("New plink created", json);
