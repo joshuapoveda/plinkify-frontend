@@ -22,7 +22,8 @@ const CreatePlinkForm = () => {
       return;
     }
 
-    const plink = { title, description, url1 };
+    const plink = { title, description, url1, url2, url3 };
+
     const response = await fetch("https://plinkify-backend.onrender.com/api/plinks", {
       method: "POST",
       body: JSON.stringify(plink),
@@ -41,8 +42,6 @@ const CreatePlinkForm = () => {
       setTitle("");
       setDescription("");
       setUrl1("");
-      setUrl2("");
-      setUrl3("");
       setError(null);
       setEmptyFields([]);
       console.log("New plink created", json);
@@ -66,19 +65,19 @@ const CreatePlinkForm = () => {
           onChange={(e) => setDescription(e.target.value)}
           value={description}
         />
-        <label>Link 1:</label>
+        <label>Link:</label>
         <input
           type="text"
           onChange={(e) => setUrl1(e.target.value)}
           value={url1}
         />
-        <label>Link 2:</label>
+        <label>Link:</label>
         <input
           type="text"
           onChange={(e) => setUrl2(e.target.value)}
           value={url2}
         />
-        <label>Link 3:</label>
+        <label>Link:</label>
         <input
           type="text"
           onChange={(e) => setUrl3(e.target.value)}
