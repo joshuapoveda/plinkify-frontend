@@ -12,8 +12,6 @@ const Signup = () => {
     await signup(email, password);
   };
 
-  console.log(isLoading)
-
   return (
     <div>
       <form className="signup" onSubmit={handleSubmit}>

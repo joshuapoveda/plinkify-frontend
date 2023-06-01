@@ -15,17 +15,19 @@ export const useSignup = () => {
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ email, password })
     });
+    //response is async method
     const json = await response.json();
-
+    //if error, ok prop will be false
     if (!response.ok) {
       setIsLoading(false);
       setError(json.error);
     }
     if (response.ok) {
-      //local storage save
+      //local storage save, must be strings in local storage, not json string
       localStorage.setItem("user", JSON.stringify(json));
     }
     
+    //payload is json we get back from async func
     dispatch({ type: "LOGIN", payload: json });
 
     setIsLoading(false);
