@@ -41,6 +41,8 @@ const CreatePlinkForm = () => {
       setTitle("");
       setDescription("");
       setUrl1("");
+      setUrl2("");
+      setUrl3("");
       setError(null);
       setEmptyFields([]);
       console.log("New plink created", json);
@@ -64,19 +66,19 @@ const CreatePlinkForm = () => {
           onChange={(e) => setDescription(e.target.value)}
           value={description}
         />
-        <label>Link:</label>
+        <label>Link 1:</label>
         <input
           type="text"
           onChange={(e) => setUrl1(e.target.value)}
           value={url1}
         />
-        <label>Link:</label>
+        <label>Link 2:</label>
         <input
           type="text"
           onChange={(e) => setUrl2(e.target.value)}
           value={url2}
         />
-        <label>Link:</label>
+        <label>Link 3:</label>
         <input
           type="text"
           onChange={(e) => setUrl3(e.target.value)}
