@@ -33,6 +33,7 @@ const PlinkCard = ({ plink }) => {
       <ul>
         <li>{plink.url1}</li>
         <li>{plink.url2}</li>
+        <li>{plink.url3}</li>
       </ul>
       <p>
         {formatDistancetToNow(new Date(plink.createdAt), { addSuffix: true })}

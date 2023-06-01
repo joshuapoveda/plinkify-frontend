@@ -9,6 +9,8 @@ const CreatePlinkForm = () => {
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
   const [url1, setUrl1] = useState("");
+  const [url2, setUrl2] = useState("");
+  const [url3, setUrl3] = useState("");
   const [error, setError] = useState(null);
   const [emptyFields, setEmptyFields] = useState([]);
 
@@ -67,6 +69,18 @@ const CreatePlinkForm = () => {
           type="text"
           onChange={(e) => setUrl1(e.target.value)}
           value={url1}
+        />
+        <label>Link:</label>
+        <input
+          type="text"
+          onChange={(e) => setUrl2(e.target.value)}
+          value={url2}
+        />
+        <label>Link:</label>
+        <input
+          type="text"
+          onChange={(e) => setUrl3(e.target.value)}
+          value={url3}
         />
 
         <button>Create Plink</button>
