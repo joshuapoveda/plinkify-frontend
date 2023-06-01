@@ -21,8 +21,8 @@ const CreatePlinkForm = () => {
     }
 
     const plink = { title, description, url1 };
-
-    const response = await fetch("https://plinkify-backend.onrender.com/api/plinks", {
+//https://plinkify-backend.onrender.com/api/plinks
+    const response = await fetch("/api/plinks", {
       method: "POST",
       body: JSON.stringify(plink),
       headers: {

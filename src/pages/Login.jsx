@@ -12,6 +12,8 @@ const Login = () => {
     await login(email, password)
   };
 
+  console.log(error)
+
   return (
     <div>
       <form className="login" onSubmit={handleSubmit}>

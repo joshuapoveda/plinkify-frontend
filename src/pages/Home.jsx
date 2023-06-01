@@ -13,7 +13,8 @@ const Home = () => {
   useEffect(() => {
     const getPlinks = async () => {
       const response = await fetch(
-        "https://plinkify-backend.onrender.com/api/plinks",
+        //"https://plinkify-backend.onrender.com/api/plinks",
+        "api/plinks",
         {
           headers: {
             'Authorization': `Bearer ${user.token}`,

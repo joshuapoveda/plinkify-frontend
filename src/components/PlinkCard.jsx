@@ -10,7 +10,8 @@ const PlinkCard = ({ plink }) => {
     if (!user) {
       return;
     }
-    const response = await fetch("https://plinkify-backend.onrender.com/api/plinks/" + plink._id, {
+    //https://plinkify-backend.onrender.com/api/plinks/
+    const response = await fetch("/api/plinks/" + plink._id, {
       method: "DELETE",
       headers: {
         'Authorization': `Bearer ${user.token}`,
