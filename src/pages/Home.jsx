@@ -14,7 +14,6 @@ const Home = () => {
     const getPlinks = async () => {
       const response = await fetch(
         "https://plinkify-backend.onrender.com/api/plinks",
-        //"api/plinks",
         {
           headers: {
             'Authorization': `Bearer ${user.token}`,

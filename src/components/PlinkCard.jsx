@@ -10,12 +10,15 @@ const PlinkCard = ({ plink }) => {
     if (!user) {
       return;
     }
-    const response = await fetch("https://plinkify-backend.onrender.com/api/plinks/" + plink._id, {
-      method: "DELETE",
-      headers: {
-        'Authorization': `Bearer ${user.token}`,
-      },
-    });
+    const response = await fetch(
+      "https://plinkify-backend.onrender.com/api/plinks/" + plink._id,
+      {
+        method: "DELETE",
+        headers: {
+          Authorization: `Bearer ${user.token}`,
+        },
+      }
+    );
     const json = await response.json();
 
     if (response.ok) {
@@ -38,6 +41,9 @@ const PlinkCard = ({ plink }) => {
       <p>
         {formatDistancetToNow(new Date(plink.createdAt), { addSuffix: true })}
       </p>
+      <div>
+        <button>Make public!</button>
+      </div>
       <div>
         <button onClick={handleClick}>DELETE</button>
       </div>
