@@ -12,12 +12,12 @@ function App() {
   const { user } = useAuthContext();
   return (
     <div className="App">
-      <BrowserRouter basepath="/main">
+      <BrowserRouter basepath="/">
         <Navbar></Navbar>
         <div className="pages">
           <Routes>
             <Route
-              path="/main"
+              path="/"
               element={user ? <Home /> : <Navigate to="/main" />}
             />
 
