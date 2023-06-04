@@ -28,6 +28,9 @@ const Navbar = () => {
             <br></br>
             <Link to="/signup">signup</Link>
           </div>)}
+          <Link to="/main">
+          <h1>main page</h1>
+        </Link>
         </nav>
       </div>
     </header>
