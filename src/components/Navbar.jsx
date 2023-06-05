@@ -13,7 +13,7 @@ const Navbar = () => {
   return (
     <header>
       <div className="nav-container">
-        <Link to="/">
+        <Link to="/home">
           <h1>PLINKIFY</h1>
         </Link>
         <nav>
