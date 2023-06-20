@@ -18,21 +18,21 @@ function App() {
           <Routes>
             <Route
               path="/"
-              element={!user ? <Landing /> : <Home/>}
+              element={<Landing />}
             />
 
             <Route
               path="/login"
-              element={!user ? <Login /> : <Home/>}
+              element={<Login />}
             />
 
             <Route
               path="/signup"
-              element={!user ? <Signup /> : <Home />}
+              element={<Signup />}
             />
             <Route
               path="/home"
-              element={!user ? <Login />: <Home/>}
+              element={<Home/>}
             />
           </Routes>
         </div>
