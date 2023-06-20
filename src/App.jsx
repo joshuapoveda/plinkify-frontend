@@ -18,7 +18,7 @@ function App() {
           <Routes>
             <Route
               path="/"
-              element={user ? <Home /> : <Landing/>}
+              element={<Landing/>}
             />
 
             <Route
