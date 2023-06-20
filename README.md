@@ -18,7 +18,7 @@ I have implemented user authentication using packages like bcrypt and validator 
 
 The authentication is working and the database is populating. The next step for this project is creating a public landing site, a voting system where plinks can aggregate votes from authenticated users, and styling.
 
-There are a few bugs to fix because this was my first time using the react context hook. It is a very powerful tool, but can create a complicated workflow that is difficult to debug. 
+*the code in vercel.json effectively tells the server to serve the index.html file for any requested URL, allowing the React application to handle the routing and rendering on the client-side
 
 >Thanks
 
