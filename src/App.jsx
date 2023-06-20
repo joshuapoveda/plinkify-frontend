@@ -32,7 +32,7 @@ function App() {
             />
             <Route
               path="/home"
-              element={user ? <Home/>: <Navigate to="/"/>}
+              element={user ? <Home/> : <Navigate to="/"/>}
             />
           </Routes>
         </div>

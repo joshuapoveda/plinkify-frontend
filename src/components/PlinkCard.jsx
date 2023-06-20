@@ -26,6 +26,11 @@ const PlinkCard = ({ plink }) => {
     }
   };
 
+  const makePublic = () => {
+    console.log(plink._id)
+    console.log(plink)
+  }
+
   return (
     <div>
       <h4>{plink.title}</h4>
@@ -42,7 +47,7 @@ const PlinkCard = ({ plink }) => {
         {formatDistancetToNow(new Date(plink.createdAt), { addSuffix: true })}
       </p>
       <div>
-        <button>Make public!</button>
+        <button onClick={makePublic}>Make public!</button>
       </div>
       <div>
         <button onClick={handleClick}>DELETE</button>
