@@ -32,7 +32,7 @@ function App() {
             />
             <Route
               path="/main"
-              element={<Landing/>}
+              element={!user ? <Navigate to="/" />: <Home/>}
             />
           </Routes>
         </div>
