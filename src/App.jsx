@@ -31,8 +31,8 @@ function App() {
               element={!user ? <Signup /> : <Home />}
             />
             <Route
-              path="/main"
-              element={!user ? <Navigate to="/" />: <Home/>}
+              path="/home"
+              element={!user ? <Login />: <Home/>}
             />
           </Routes>
         </div>
